@@ -1,16 +1,12 @@
-function setFormSubmissionEventHandler(event) {
+const addEventItemObject = (event) => {
   event.preventDefault();
-  characterSubmit();
-}
-
-window.addEventListener("load", function() {
-  let form = document.getElementById("characterSubmit");
-  form.addEventListener("submit", setFormSubmissionEventHandler)
-});
-
-function characterSubmit() {
+};
+// Business Logic
+function characterSubmit(event) {
+	addEventItemObject(event);
   const nameInput = document.getElementById("nameInput").value;
   const classInput = document.getElementById("classInput").value;
+	const alignInput = document.querySelector("input[name='alignment']:checked").value;
   const strInput = document.getElementById("strInput").value;
   const conInput = document.getElementById("conInput").value;
   const intInput = document.getElementById("intInput").value;
@@ -21,29 +17,53 @@ function characterSubmit() {
   
   document.querySelector("span#name1a").innerText = nameInput;
   document.querySelector("span#class1a").innerText = classInput;
+	document.querySelector("span#morality1a").innerText = alignInput;
   document.querySelector("span#str1a").innerText = strInput;
   document.querySelector("span#con1a").innerText = conInput;
   document.querySelector("span#int1a").innerText = intInput;
   document.querySelector("span#wis1a").innerText = wisInput;
   document.querySelector("span#dex1a").innerText = dexInput;
   document.querySelector("span#chr1a").innerText = chrInput;
-  document.querySelectro("span#san1a").innerText = sanInput;
+  document.querySelector("span#san1a").innerText = sanInput;
 }
 
 
+//User Interface Logic
+function setFormSubmissionEventHandler(event) {
+  addEventItemObject(event);
+  characterSubmit();
 
-//function handleSubmission(event) {
- // event.preventDefault();
- // const number1 = parseInt(document.querySelector("input#input1").value);
- // const number2 = parseInt(document.querySelector("input#input2").value);
- // const operator = document.querySelector("input[name='operator']:checked").value;
+	const outcome = document.getElementById("outcome");
+	const invalid = document.getElementById("invalid");
+	function addStats(event) {
+		addEventItemObject(event);
+		parseInt(strInput);
+		parseInt(conInput);
+		parseInt(intInput);
+		parseInt(wisInput);
+		parseInt(dexInput);
+		parseInt(chrInput);
+		parseInt(sanInput);
+		const statSum = strInput + conInput + intInput + wisInput + dexInput + chrInput + sanInput;
+		return statSum;
+	}
 
-  //let result = calculate(number1, number2, operator);
 
- // document.getElementById("output").innerText = result;
-  //}
+	function checkstats(event){
+		addEventItemObject(event);
+		addStats();
+		
+		if (statSum <= 30) {
+			outcome.removeAttribute("hidden");
+		} else if (statSum > 30) {
+			invalid.removeAttribute("hidden");
+		}
+	}
+}
 
-  //window.addEventListener("load", function() {
-  //const form = document.getElementById("calculator");
-  //form.addEventListener("submit", handleSubmission);
-  //});
+window.addEventListener("load", function(event) {
+  addEventItemObject(event);
+  let form = document.getElementById("characterSubmit");
+  form.addEventListener("submit", setFormSubmissionEventHandler)
+});
+
