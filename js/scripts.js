@@ -1,4 +1,14 @@
-function charactersubmit(event) {
+function setFormSubmissionEventHandler(event) {
+  event.preventDefault();
+  characterSubmit();
+}
+
+window.addEventListener("load", function() {
+  let form = document.getElementById("characterSubmit");
+  form.addEventListener("submit", setFormSubmissionEventHandler)
+});
+
+function characterSubmit() {
   const nameInput = document.getElementById("nameInput").value;
   const classInput = document.getElementById("classInput").value;
   const strInput = document.getElementById("strInput").value;
@@ -21,8 +31,19 @@ function charactersubmit(event) {
 }
 
 
-window.addEventListener("load", function() {
-  let form = document.querySelector("form");
-  form.addEventListener("submit", charactersubmit(event))
-  event.preventDefault 
-}
+
+//function handleSubmission(event) {
+ // event.preventDefault();
+ // const number1 = parseInt(document.querySelector("input#input1").value);
+ // const number2 = parseInt(document.querySelector("input#input2").value);
+ // const operator = document.querySelector("input[name='operator']:checked").value;
+
+  //let result = calculate(number1, number2, operator);
+
+ // document.getElementById("output").innerText = result;
+  //}
+
+  //window.addEventListener("load", function() {
+  //const form = document.getElementById("calculator");
+  //form.addEventListener("submit", handleSubmission);
+  //});
