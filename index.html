@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link href="css/styles.css" rel="stylesheet" type="text/css">
+		<script src="js/scripts.js"></script>
+		<title>The Bard's Tavern</title>
+	</head>
+	<body>
+		<h2>Welcome to</h2>
+		<h1>THE BARD'S TAVERN</h1>
+		<form>
+			<label for="nameInput">What is your name, adventurer?</label>
+			<input id="nameInput" type="text">
+		</form>
+		<p>What is your adventuring specialty?</p>
+		<form>
+			<select id="classInput">
+				<option>Warrior</option>
+				<option>Bowperson</option>
+				<option>Magic User</option>
+				<option>Necromancer</option>
+				<option>Cat Vomit Cleaner</option>
+				<option>Churchgoer (bonus piety)</option>
+			</select>
+		</form>
+		<p>What is your moral alignment?</p>
+		<form>
+			<label>
+				<input type="radio" name="alignment" value="chaoticNeutral">
+				Chaotic Neutral
+			</label>
+			<label>
+				<input type="radio" name="alignment" value="lawfulEvil">
+				Lawful Evil
+			</label>
+			<label>
+				<input type="radio" name="alignment" value="morallyGrey">
+				Morally Grey
+			</label>
+			<label>
+				<input type="radio" name="alignment" value="notVeryNice">
+				Not Very Nice
+			</label>
+			<label>
+				<input type="radio" name="alignment" value="doesntTip">
+				Doesn't Tip
+			</label>
+		</form>
+		<p>Allocate your stat points!  (You have a maximum of 30)</p>
+		<form>
+			<label for="strInput">Strength</label>
+			<input id="strInput" type="number">
+			<br>
+			<label for="conInput">Constitution</label>
+			<input id="conInput" type="number">
+			<br>
+			<label for="intInput">Intelligence</label>
+			<input id="intInput" type="number">
+			<br>
+			<label for="wisInput">Wisdom</label>
+			<input id="wisInput" type="number">
+			<br>
+			<label for="chrInput">Charisma</label>
+			<input id="chrInput" type="number">
+			<br>
+			<label for="dexInput">Dexterity</label>
+			<input id="dexInput" type="number">
+			<br>
+			<label for="sanInput">Sanity</label>
+			<input id="sanInput" type="number">
+			<button type="submit">Forge your tale!!!!</button>
+		</form>
+    <div id="outcome" class="hidden">
+      <h1>Thank you for filling out your guild application!</h1>
+      <p>To double check, <span id="nameInput">_</span> and the class you've selected was <span id="classInput">_</span>. Thou dost chooseth thine alignmenteth of moraliteth of <span id="moralityInput">_</span>. Thy already come with some of the makings of a true adventurer
+	</body>
+</html>
